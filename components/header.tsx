@@ -11,17 +11,26 @@ export function Header() {
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <Zap className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="font-bold text-xl">SaaSify</span>
+          <span className="font-bold text-xl">Dashboard</span>
         </Link>
-        
+
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            href="#features"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             Features
           </Link>
-          <Link href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            href="#pricing"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             Pricing
           </Link>
-          <Link href="/demo" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            href="/demo"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             Demo
           </Link>
         </nav>
@@ -29,7 +38,9 @@ export function Header() {
         <div className="flex items-center space-x-4">
           <ThemeToggle />
           <Link href="/auth/signin">
-            <Button variant="ghost" size="sm">Sign In</Button>
+            <Button variant="ghost" size="sm">
+              Sign In
+            </Button>
           </Link>
           <Link href="/auth/signup">
             <Button size="sm">Get Started</Button>
