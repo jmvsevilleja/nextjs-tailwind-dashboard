@@ -15,13 +15,17 @@ import { Icon } from "@iconify/react";
 const HeaderSearch = ({ open, setOpen }: { open: boolean; setOpen: any }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent size="xl" className="p-0 " hiddenCloseIcon>
+      <DialogContent
+        //size="xl"
+        className="p-0 "
+        showCloseButton={false}
+      >
         <Command>
           <div className="flex items-center border-b border-default-200">
             <CommandInput
               placeholder=""
               className="h-14"
-              inputWrapper="px-3.5 flex-1 border-none"
+              // inputWrapper="px-3.5 flex-1 border-none"
             />
             <div className="flex-none flex items-center justify-center gap-1 pr-4">
               <span className="text-sm text-default-500 font-normal select-none">

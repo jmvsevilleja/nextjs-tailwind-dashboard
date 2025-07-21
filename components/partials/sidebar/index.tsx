@@ -17,7 +17,7 @@ const Sidebar = ({ trans }: { trans: string }) => {
   if (!isDesktop && (sidebarType === "popover" || sidebarType === "classic")) {
     selectedSidebar = <MobileSidebar trans={trans} />;
   } else {
-    const sidebarComponents: { [key: string]: JSX.Element } = {
+    const sidebarComponents: { [key: string]: any } = {
       module: <ModuleSidebar trans={trans} />,
       popover: <PopoverSidebar trans={trans} />,
       classic: <ClassicSidebar trans={trans} />,

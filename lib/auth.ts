@@ -1,6 +1,13 @@
 import Credentials from "next-auth/providers/credentials";
 
-import { User as user } from "@/app/api/user/data";
+// Dummy user for demo purposes
+export const user = {
+  id: 1,
+  name: "Demo User",
+  email: "demo@example.com",
+  // Add other fields as needed
+};
+
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 
@@ -21,26 +28,16 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const { email, password } = credentials as {
+        const { email } = credentials as {
           email: string;
           password: string;
         };
 
-        const foundUser = user.find((u) => u.email === email);
-
-        if (!foundUser) {
-          return null;
+        if (user.email === email) {
+          // For demo purposes, any password is accepted
+          return user as any;
         }
 
-        const valid = password === foundUser.password;
-
-        if (!valid) {
-          return null;
-        }
-
-        if (foundUser) {
-          return foundUser as any;
-        }
         return null;
       },
     }),

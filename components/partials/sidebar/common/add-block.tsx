@@ -54,7 +54,11 @@ const AddBlock = ({
         </div>
       </div>
       <Dialog open={openVideo}>
-        <DialogContent size="lg" className="p-0" hiddenCloseIcon>
+        <DialogContent
+          //size="lg"
+          className="p-0"
+          showCloseButton={false}
+        >
           <Button
             size="icon"
             onClick={() => setOpenVideo(false)}
@@ -78,7 +82,3 @@ const AddBlock = ({
 };
 
 export default AddBlock;
-
-
-
-

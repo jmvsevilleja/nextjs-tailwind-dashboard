@@ -15,10 +15,7 @@ const ThemeChange = () => {
   const { theme, setTheme } = useThemeStore();
   const { resolvedTheme: mode } = useTheme();
   const newTheme = themes.find((t) => t.name === theme);
-  console.log(
-    "newTheme",
-    newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
-  );
+
   const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTheme(event.target.value);
   };

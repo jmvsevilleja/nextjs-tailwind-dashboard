@@ -37,8 +37,8 @@ const ModuleSidebar = ({ trans }: { trans: any }) => {
 
   const toggleSubMenu = (index: number) => {
     setActiveIndex(index);
-    if (menus[index].child) {
-      setCurrentSubMenu(menus[index].child);
+    if ("child" in menus[index]) {
+      setCurrentSubMenu(menus[index].child as any[]);
       setSubmenu(false);
       setCollapsed(false);
       if (!isDesktop) {
