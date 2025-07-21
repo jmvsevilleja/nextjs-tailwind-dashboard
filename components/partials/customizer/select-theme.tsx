@@ -5,8 +5,6 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Icon } from "@iconify/react";
-import { themes } from "@/config/thems";
-import { useThemeStore } from "@/store";
 
 const allThemes = [
   { key: "light", label: "Light", icon: "heroicons:sun" },
@@ -14,21 +12,11 @@ const allThemes = [
 ];
 
 const SelectTheme = () => {
-  const { theme, setTheme, resolvedTheme: mode } = useTheme();
-  const { theme: config } = useThemeStore();
-  const newTheme = themes.find((theme) => theme.name === config);
+  const { theme, setTheme } = useTheme();
 
   return (
-    <div
-      style={
-        {
-          "--theme-primary": `hsl(${
-            newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
-          })`,
-        } as React.CSSProperties
-      }
-    >
-      <div className="mb-2 relative inline-block px-3 py-[3px] rounded-md before:bg-[--theme-primary] before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-[--theme-primary]  text-xs font-medium">
+    <div>
+      <div className="mb-2 relative inline-block px-3 py-[3px] rounded-md before:bg-primary before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-primary  text-xs font-medium">
         Color Scheme
       </div>
       <div className="text-muted-foreground font-normal text-xs mb-4">
@@ -42,8 +30,7 @@ const SelectTheme = () => {
               className={cn(
                 "border  flex  w-full text-center items-center justify-center py-[14px]  px-10 rounded relative",
                 {
-                  "text-[--theme-primary] border-[--theme-primary]":
-                    theme === themeOption.key,
+                  "text-primary border-primary": theme === themeOption.key,
                   "text-default-400": theme !== themeOption.key,
                 }
               )}
@@ -51,7 +38,7 @@ const SelectTheme = () => {
               {theme === themeOption.key && (
                 <Icon
                   icon="heroicons:check-circle-20-solid"
-                  className=" text-[--theme-primary] absolute top-1 right-1"
+                  className=" text-primary absolute top-1 right-1"
                 />
               )}
               <div>

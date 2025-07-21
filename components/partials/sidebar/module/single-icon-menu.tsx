@@ -5,18 +5,23 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  TooltipArrow,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { translate } from "@/lib/utils";
-const SingleIconMenu = ({ index, activeIndex, item, locationName, trans }: {
+const SingleIconMenu = ({
+  index,
+  activeIndex,
+  item,
+  locationName,
+  trans,
+}: {
   index: number;
   activeIndex: number | null;
   item: any;
   locationName: string;
   trans: any;
 }) => {
-  const { icon, title, href } = item;
+  const { title, href } = item;
   return (
     <>
       <TooltipProvider>

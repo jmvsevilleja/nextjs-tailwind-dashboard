@@ -39,8 +39,10 @@ const Language = () => {
 
   const router = useRouter();
   const pathname = usePathname();
-  const { isRtl, setRtl } = useThemeStore();
-  const found = pathname ? languages.find((lang) => pathname.includes(lang.name)) : null;
+  const { setRtl } = useThemeStore();
+  const found = pathname
+    ? languages.find((lang) => pathname.includes(lang.name))
+    : null;
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(
     found ?? languages[0]
   );

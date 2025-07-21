@@ -1,4 +1,6 @@
-export const getYAxisConfig = (color: string): { labels: { style: { color: string; fontFamily: string; } } } => ({
+export const getYAxisConfig = (
+  color: string
+): { labels: { style: { color: string; fontFamily: string } } } => ({
   labels: {
     style: {
       color: color,
@@ -7,8 +9,7 @@ export const getYAxisConfig = (color: string): { labels: { style: { color: strin
   },
 });
 
-
-export const getXAxisConfig = (colors: string): { } => ({
+export const getXAxisConfig = (colors: string): object => ({
   categories: [
     "Jan",
     "Feb",
@@ -32,15 +33,21 @@ export const getXAxisConfig = (colors: string): { } => ({
   },
 });
 
-export const getLabel = (colors:any): {  } => ({
+export const getLabel = (colors: any): object => ({
   style: {
     colors: colors,
     fontFamily: "Inter",
   },
 });
 
-
-export const getGridConfig = (color: string): { show: boolean; borderColor: string; strokeDashArray: number; position: string; } => ({
+export const getGridConfig = (
+  color: string
+): {
+  show: boolean;
+  borderColor: string;
+  strokeDashArray: number;
+  position: string;
+} => ({
   show: true,
   borderColor: color,
   strokeDashArray: 10,

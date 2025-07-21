@@ -1,8 +1,8 @@
 "use client";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { Icon } from "@iconify/react";
 
-import { useState } from "react";
+// import { useState } from "react";
 import AddBlock from "../common/add-block";
 const LogoutFooter = () => {
   return (

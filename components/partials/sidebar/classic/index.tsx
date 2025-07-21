@@ -5,7 +5,6 @@ import { useSidebar, useThemeStore } from "@/store";
 import SidebarLogo from "../common/logo";
 import { menusConfig } from "@/config/menus";
 import MenuLabel from "../common/menu-label";
-import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { usePathname } from "next/navigation";
 import SingleMenuItem from "./single-menu-item";
@@ -17,7 +16,7 @@ const ClassicSidebar = ({ trans }: { trans: string }) => {
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeMultiMenu, setMultiMenu] = useState<number | null>(null);
   const menus = menusConfig?.sidebarNav?.classic || [];
-  const { collapsed, setCollapsed } = useSidebar();
+  const { collapsed } = useSidebar();
   const { isRtl } = useThemeStore();
   const [hovered, setHovered] = useState<boolean>(false);
 
@@ -50,7 +49,7 @@ const ClassicSidebar = ({ trans }: { trans: string }) => {
             subMenuIndex = i;
           }
           if (childItem?.multi_menu) {
-            childItem.multi_menu.map((multiItem: any, k: number) => {
+            childItem.multi_menu.map((multiItem: any) => {
               if (isLocationMatch(multiItem.href, locationName)) {
                 subMenuIndex = i;
                 multiMenuIndex = j;
@@ -136,8 +135,6 @@ const ClassicSidebar = ({ trans }: { trans: string }) => {
                       activeSubmenu={activeSubmenu}
                       item={item}
                       index={i}
-
-
                       trans={trans}
                     />
                   )}

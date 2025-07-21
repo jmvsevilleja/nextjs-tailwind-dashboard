@@ -1,10 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import React from "react";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import MultiMenuHandler from "./multi-menu-handler";
 import MultiNestedMenu from "./multi-nested-menu";
 import SubMenuItem from "./sub-menu-item";
@@ -17,7 +13,6 @@ const NestedSubMenu = ({
   index,
   activeMultiMenu,
   toggleMultiMenu,
-  title,
   trans,
 }: {
   activeSubmenu: number | null;
@@ -26,7 +21,7 @@ const NestedSubMenu = ({
   activeMultiMenu: number | null;
   toggleMultiMenu: (index: number) => void;
   title?: string;
-  trans: any
+  trans: any;
 }) => {
   const pathname = usePathname();
   const locationName = getDynamicPath(pathname);

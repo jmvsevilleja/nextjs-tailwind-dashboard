@@ -1,9 +1,7 @@
 import React from "react";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { themes } from "@/config/thems";
 import { useThemeStore } from "@/store";
-import { useTheme } from "next-themes";
 import { VerticalSvg, HorizontalSvg, SemiBoxSvg } from "@/components/svg";
 
 import { Icon } from "@iconify/react";
@@ -33,21 +31,10 @@ const layoutOptions = [
 
 const SelectLayout = () => {
   const { layout, setLayout } = useThemeStore();
-  const { theme, setTheme, resolvedTheme: mode } = useTheme();
-  const { theme: config, setTheme: setConfig } = useThemeStore();
-  const newTheme = themes.find((theme) => theme.name === config);
 
   return (
-    <div
-      style={
-        {
-          "--theme-primary": `hsl(${
-            newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
-          })`,
-        } as React.CSSProperties
-      }
-    >
-      <div className="mb-2 relative inline-block px-3 py-[3px] rounded-md before:bg-[--theme-primary] before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-[--theme-primary]  text-xs font-medium">
+    <div>
+      <div className="mb-2 relative inline-block px-3 py-[3px] rounded-md before:bg-primary before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-primary  text-xs font-medium">
         Layout
       </div>
       <div className="text-muted-foreground font-normal text-xs mb-4">
@@ -59,8 +46,7 @@ const SelectLayout = () => {
             <button
               onClick={() => setLayout(layoutOption.key)}
               className={cn("border block  rounded relative h-[72px] w-full", {
-                "text-[--theme-primary] border-[--theme-primary]":
-                  layout === layoutOption.key,
+                "text-primary border-primary": layout === layoutOption.key,
                 "text-muted-foreground border-border":
                   layout !== layoutOption.key,
               })}
@@ -68,7 +54,7 @@ const SelectLayout = () => {
               {layout === layoutOption.key && (
                 <Icon
                   icon="heroicons:check-circle-20-solid"
-                  className=" text-[--theme-primary] absolute top-1 right-1"
+                  className=" text-primary absolute top-1 right-1"
                 />
               )}
               {layoutOption.svg}

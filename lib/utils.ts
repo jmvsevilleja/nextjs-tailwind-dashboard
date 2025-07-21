@@ -1,12 +1,9 @@
-import { type ClassValue, clsx } from "clsx"
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
-
-
-
 
 export const isLocationMatch = (
   targetLocation: any,
@@ -33,7 +30,7 @@ export const RGBToHex = (r: number, g: number, b: number): string => {
 
 export function hslToHex(hsl: string): string {
   // Remove "hsla(" and ")" from the HSL string
-  let hslValues = hsl.replace("hsla(", "").replace(")", "");
+  const hslValues = hsl.replace("hsla(", "").replace(")", "");
 
   // Split the HSL string into an array of H, S, and L values
   const [h, s, l] = hslValues.split(" ").map((value) => {
@@ -91,7 +88,6 @@ export function hslToHex(hsl: string): string {
   return hslToRgb(h, s, l);
 }
 
-
 export const hexToRGB = (hex: string, alpha?: number): string => {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -126,11 +122,13 @@ export function isObjectNotEmpty(obj: any): boolean {
 }
 
 export const formatDate = (date: string | number | Date): string => {
-  const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   return new Date(date).toLocaleDateString("en-US", options);
 };
-
-
 
 // random word
 export function getWords(inputString: string): string {
@@ -140,7 +138,6 @@ export function getWords(inputString: string): string {
   // Extract the first three characters
   return stringWithoutSpaces.substring(0, 3);
 }
-
 
 // for path name
 export function getDynamicPath(pathname: any): any {
@@ -170,4 +167,3 @@ export const translate = (title: string, trans: Translations): string => {
 
   return title;
 };
-

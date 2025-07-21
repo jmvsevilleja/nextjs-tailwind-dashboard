@@ -167,16 +167,14 @@ export default function MainMenu({ trans }: { trans: any }) {
 }
 
 const ListItem = React.forwardRef<HTMLAnchorElement, any>(
-  (
-    { className, children, title, childItem, trans, ...props },
-    forwardedRef
-  ) => (
+  ({ className, children, title, href, trans, ...props }, forwardedRef) => (
     <NavigationMenu.Link asChild>
       <Link
         className={cn(
           " select-none   text-sm  text-default-700 rounded-md flex  items-center gap-2 mb-4 last:mb-0  leading-none no-underline outline-none transition-colors  hover:text-primary  focus:text-primary",
           className
         )}
+        href={href}
         {...props}
         ref={forwardedRef}
       >
@@ -186,3 +184,5 @@ const ListItem = React.forwardRef<HTMLAnchorElement, any>(
     </NavigationMenu.Link>
   )
 );
+
+ListItem.displayName = "ListItem";

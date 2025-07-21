@@ -5,10 +5,14 @@ import Link from "next/link";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useThemeStore } from "@/store";
 
-function NavLink({ childItem, locationName, trans }: {
+function NavLink({
+  childItem,
+  locationName,
+  trans,
+}: {
   childItem: any;
   locationName: string;
-  trans: any
+  trans: any;
 }) {
   const { href, icon, title, badge } = childItem;
   return (
@@ -51,7 +55,7 @@ const MenuItem = ({
   locationName: string;
   trans: any;
 }) => {
-  const { icon, title } = childItem;
+  const { title } = childItem;
   const { isRtl } = useThemeStore();
   return (
     <div>

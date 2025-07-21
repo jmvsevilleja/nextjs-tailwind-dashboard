@@ -1,17 +1,22 @@
 "use client";
 import React, { useState } from "react";
 import { cn, isLocationMatch } from "@/lib/utils";
-import { useSidebar, useThemeStore } from "@/store";
+import { useSidebar } from "@/store";
 import SidebarLogo from "../common/logo";
 import { menusConfig } from "@/config/menus";
 import MenuLabel from "../common/menu-label";
-import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { usePathname } from "next/navigation";
 import SingleMenuItem from "./single-menu-item";
 import SubMenuHandler from "./sub-menu-handler";
 import NestedSubMenu from "../common/nested-menus";
-const MobileSidebar = ({ className, trans }: { className?: string, trans: any }) => {
+const MobileSidebar = ({
+  className,
+  trans,
+}: {
+  className?: string;
+  trans: any;
+}) => {
   const { sidebarBg, mobileMenu, setMobileMenu } = useSidebar();
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeMultiMenu, setMultiMenu] = useState<number | null>(null);
@@ -45,7 +50,7 @@ const MobileSidebar = ({ className, trans }: { className?: string, trans: any })
             subMenuIndex = i;
           }
           if (childItem?.multi_menu) {
-            childItem.multi_menu.map((multiItem: any, k: number) => {
+            childItem.multi_menu.map((multiItem: any) => {
               if (isLocationMatch(multiItem.href, locationName)) {
                 subMenuIndex = i;
                 multiMenuIndex = j;
@@ -120,7 +125,10 @@ const MobileSidebar = ({ className, trans }: { className?: string, trans: any })
                         activeMultiMenu={activeMultiMenu}
                         activeSubmenu={activeSubmenu}
                         item={item}
-                        index={i} title={""} trans={undefined} />
+                        index={i}
+                        title={""}
+                        trans={undefined}
+                      />
                     )}
                   </>
                 )}

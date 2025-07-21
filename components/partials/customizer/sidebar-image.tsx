@@ -25,23 +25,15 @@ const SidebarImage = () => {
   const handleClear = () => {
     setSidebarBg("none");
   };
-  const hslPrimary = `hsla(${
+  const hslPrimary = `hsl(${
     newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
   })`;
 
   const hexPrimary = hslToHex(hslPrimary);
 
   return (
-    <div
-      style={
-        {
-          "--theme-primary": `hsl(${
-            newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
-          })`,
-        } as React.CSSProperties
-      }
-    >
-      <div className="mb-2 relative inline-block px-3 py-[3px] rounded before:bg-[--theme-primary] before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-[--theme-primary]  text-xs font-medium">
+    <div>
+      <div className="mb-2 relative inline-block px-3 py-[3px] rounded before:bg-primary before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-primary  text-xs font-medium">
         Sidebar Image
       </div>
       <div className="text-muted-foreground font-normal text-xs mb-4">

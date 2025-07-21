@@ -15,7 +15,10 @@ const ThemeChange = () => {
   const { theme, setTheme } = useThemeStore();
   const { resolvedTheme: mode } = useTheme();
   const newTheme = themes.find((t) => t.name === theme);
-
+  console.log(
+    "newTheme",
+    newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
+  );
   const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTheme(event.target.value);
   };
@@ -24,13 +27,13 @@ const ThemeChange = () => {
     <div
       style={
         {
-          "--theme-primary": `oklch(${
+          "--theme-primary": `hsl(${
             newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
           })`,
         } as React.CSSProperties
       }
     >
-      <div className="mb-2 relative inline-block px-3 py-[3px] rounded-md before:bg-[--theme-primary] before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-[--theme-primary]  text-xs font-medium">
+      <div className="mb-2 relative inline-block px-3 py-[3px] rounded-md before:bg-[var(--theme-primary)] before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-[var(--theme-primary)]  text-xs font-medium">
         Theme
       </div>
       <div className="text-muted-foreground font-normal text-xs mb-4">
@@ -61,7 +64,7 @@ const ThemeChange = () => {
                       )}
                       style={
                         {
-                          "--theme-primary": `oklch(${
+                          "--theme-primary": `hsl(${
                             themeObj.activeColor[
                               mode === "dark" ? "dark" : "light"
                             ]

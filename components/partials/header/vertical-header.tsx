@@ -1,13 +1,18 @@
 import React from "react";
 import { useSidebar, useThemeStore } from "@/store";
 import { cn } from "@/lib/utils";
-import { Icon } from "@iconify/react";
 import { Search } from "lucide-react";
 import { SiteLogo } from "@/components/svg";
 import Link from "next/link";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
-const MenuBar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed: (value: boolean) => void; }) => {
+const MenuBar = ({
+  collapsed,
+  setCollapsed,
+}: {
+  collapsed: boolean;
+  setCollapsed: (value: boolean) => void;
+}) => {
   return (
     <button
       className="relative group  disabled:cursor-not-allowed opacity-50"
@@ -57,7 +62,9 @@ const MenuBar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed
 type VerticalHeaderProps = {
   handleOpenSearch: () => void;
 };
-const VerticalHeader: React.FC<VerticalHeaderProps> = ({ handleOpenSearch }) => {
+const VerticalHeader: React.FC<VerticalHeaderProps> = ({
+  handleOpenSearch,
+}) => {
   const { collapsed, setCollapsed, subMenu, sidebarType } = useSidebar();
   const { layout } = useThemeStore();
   const isDesktop = useMediaQuery("(min-width: 1280px)");

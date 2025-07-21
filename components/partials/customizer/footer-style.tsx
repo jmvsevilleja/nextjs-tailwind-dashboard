@@ -1,34 +1,17 @@
 "use client";
 import { useThemeStore } from "@/store";
 import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
-import { themes } from "@/config/thems";
 import { Check } from "lucide-react";
 
 const FooterStyle = () => {
-  const { theme: mode } = useTheme();
-  const {
-    theme: config,
-    setTheme: setConfig,
-    footerType,
-    setFooterType,
-  } = useThemeStore();
-  const newTheme = themes.find((theme) => theme.name === config);
-  const handleChange = (event: any) => {
+  const { footerType, setFooterType } = useThemeStore();
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFooterType(event.target.value);
   };
 
   return (
-    <div
-      style={
-        {
-          "--theme-primary": `hsl(${
-            newTheme?.activeColor[mode === "dark" ? "dark" : "light"]
-          })`,
-        } as React.CSSProperties
-      }
-    >
-      <div className="mb-3 relative inline-block px-3 py-[3px] rounded before:bg-[--theme-primary] before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-[--theme-primary]  text-xs font-medium">
+    <div>
+      <div className="mb-3 relative inline-block px-3 py-[3px] rounded before:bg-primary before:absolute before:top-0 before:left-0 before:w-full  before:h-full before:rounded before:opacity-10 before:z-[-1]  text-primary  text-xs font-medium">
         Footer Type
       </div>
       <div className="flex flex-wrap items-center gap-3">

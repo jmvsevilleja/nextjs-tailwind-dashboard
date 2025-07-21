@@ -50,7 +50,7 @@ const PopoverSidebar = ({ trans }: { trans: string }) => {
             subMenuIndex = i;
           }
           if (childItem?.multi_menu) {
-            childItem.multi_menu.map((multiItem: any, k: number) => {
+            childItem.multi_menu.map((multiItem: any) => {
               if (isLocationMatch(multiItem.href, locationName)) {
                 subMenuIndex = i;
                 multiMenuIndex = j;
@@ -130,7 +130,6 @@ const PopoverSidebar = ({ trans }: { trans: string }) => {
                       activeSubmenu={activeSubmenu}
                       item={item}
                       index={i}
-
                       trans={trans}
                     />
                   )}

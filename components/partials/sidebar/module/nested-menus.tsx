@@ -1,12 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import React from "react";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import { cn, isLocationMatch, translate } from "@/lib/utils";
-import Link from "next/link";
 import LinkButton from "./link-or-button";
 import MultiNestedMenus from "./multi-nested";
 
@@ -25,7 +20,7 @@ const NestedMenus = ({
   locationName: string;
   toggleMulti: any;
   multiIndex: number | null;
-  trans: any
+  trans: any;
 }) => {
   return (
     <Collapsible open={nestedIndex === index}>
@@ -49,7 +44,6 @@ const NestedMenus = ({
                 index={j}
                 multiIndex={multiIndex}
                 locationName={locationName}
-
               >
                 <div className={cn("pl-3  text-sm capitalize  font-normal ")}>
                   {translate(item.title, trans)}

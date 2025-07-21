@@ -3,14 +3,14 @@ const dayBeforePreviousDay = new Date(
   new Date().getTime() - 24 * 60 * 60 * 1000 * 2
 );
 
-import avatar1 from "@/public/images/avatar/avatar-7.jpg";
-import avatar2 from "@/public/images/avatar/avatar-2.jpg";
-import avatar3 from "@/public/images/avatar/avatar-3.jpg";
-import avatar4 from "@/public/images/avatar/avatar-4.jpg";
-import avatar5 from "@/public/images/avatar/avatar-5.jpg";
-import avatar6 from "@/public/images/avatar/avatar-6.jpg";
-import avatar7 from "@/public/images/avatar/avatar-7.jpg";
-import avatar8 from "@/public/images/avatar/avatar-8.jpg";
+// import avatar1 from "@/public/images/avatar/avatar-7.jpg";
+// import avatar2 from "@/public/images/avatar/avatar-2.jpg";
+// import avatar3 from "@/public/images/avatar/avatar-3.jpg";
+// import avatar4 from "@/public/images/avatar/avatar-4.jpg";
+// import avatar5 from "@/public/images/avatar/avatar-5.jpg";
+// import avatar6 from "@/public/images/avatar/avatar-6.jpg";
+// import avatar7 from "@/public/images/avatar/avatar-7.jpg";
+// import avatar8 from "@/public/images/avatar/avatar-8.jpg";
 export const profileUser = {
   id: 11,
   avatar: "/images/avatar/avatar-2.jpg",

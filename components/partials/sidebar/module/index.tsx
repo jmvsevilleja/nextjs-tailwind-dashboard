@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { cn, isLocationMatch, getDynamicPath, translate } from "@/lib/utils";
-import { menusConfig, ModernNavType, } from "@/config/menus";
+import { menusConfig } from "@/config/menus";
 import SingleIconMenu from "./single-icon-menu";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useSidebar, useThemeStore } from "@/store";
 import MenuItem from "./menu-item";
 import NestedMenus from "./nested-menus";
-import Image from "next/image";
 import Link from "next/link";
 import FooterMenu from "./footer-menu";
 import { SiteLogo } from "@/components/svg";
@@ -29,7 +28,7 @@ const ModuleSidebar = ({ trans }: { trans: any }) => {
   // mobile menu overlay
   const [menuOverlay, setMenuOverlay] = useState<boolean>(false);
   const isDesktop = useMediaQuery("(min-width: 1280px)");
-  const isMobile = useMediaQuery("(min-width: 768px)");
+  // const isMobile = useMediaQuery("(min-width: 768px)");
 
   // location
 
@@ -81,7 +80,11 @@ const ModuleSidebar = ({ trans }: { trans: any }) => {
     setSubmenu(false);
     setCollapsed(false);
   }
-  function setActiveNestedMenu(menuIndex: number, nestedMenuIndex: number, childMenu: any) {
+  function setActiveNestedMenu(
+    menuIndex: number,
+    nestedMenuIndex: number,
+    childMenu: any
+  ) {
     setActiveIndex(menuIndex);
     setNestedIndex(nestedMenuIndex);
     setCurrentSubMenu(childMenu);
@@ -123,7 +126,7 @@ const ModuleSidebar = ({ trans }: { trans: any }) => {
               isMenuMatched = true;
             }
             if (nestedItem.child) {
-              nestedItem.child.forEach((multiItem: any, k: number) => {
+              nestedItem.child.forEach((multiItem: any) => {
                 if (isLocationMatch(multiItem.href, locationName)) {
                   setActiveNestedMenu(i, j, item.child);
                   setMenuOverlay(false);
@@ -134,7 +137,6 @@ const ModuleSidebar = ({ trans }: { trans: any }) => {
           });
         }
       });
-
     });
     if (!isMenuMatched) {
       setSubmenu(false);
