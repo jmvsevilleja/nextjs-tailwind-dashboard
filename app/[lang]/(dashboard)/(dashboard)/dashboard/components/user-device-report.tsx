@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { themes } from "@/config/thems";
 
 const UserDeviceReport = ({ height = 250 }) => {
-  const { theme: config, setTheme: isRtl } = useThemeStore();
+  const { theme: config, isRtl } = useThemeStore();
   const { theme: mode } = useTheme();
   const theme = themes.find((theme) => theme.name === config);
   const series = [2200, 800, 1500];

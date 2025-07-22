@@ -21,10 +21,11 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{
+    lang: any;
+  }>;
 }) {
-  const awaitedParams = await params;
-  const lang = awaitedParams.lang;
+  const { lang } = await params;
 
   return (
     <html lang={lang} suppressHydrationWarning>

@@ -1,12 +1,14 @@
 import DashboardPageView from "./page-view";
 import { getDictionary } from "@/app/dictionaries";
 
-interface DashboardProps {
-  params: {
+const Dashboard = async ({
+  params,
+}: {
+  params: Promise<{
     lang: any;
-  };
-}
-const Dashboard = async ({ params: { lang } }: DashboardProps) => {
+  }>;
+}) => {
+  const { lang } = await params;
   const trans = await getDictionary(lang);
   return <DashboardPageView trans={trans} />;
 };
