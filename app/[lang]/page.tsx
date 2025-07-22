@@ -39,7 +39,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/blank">
+            <Link href="/dashboard">
               <Button size="lg" className="w-full sm:w-auto">
                 Go to Dashboard
                 <ArrowRight className="w-4 h-4 ml-2" />

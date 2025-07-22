@@ -14,17 +14,17 @@ export interface MenuItemProps {
 export const menusConfig = {
   mainNav: [
     {
-      title: "blank",
+      title: "dashboard",
       icon: DashBoard,
-      href: "/blank",
+      href: "/dashboard",
     },
   ],
   sidebarNav: {
     modern: [
       {
-        title: "blank",
+        title: "dashboard",
         icon: DashBoard,
-        href: "/blank",
+        href: "/dashboard",
       },
     ],
     classic: [
@@ -33,9 +33,9 @@ export const menusConfig = {
         title: "menu",
       },
       {
-        title: "blank",
+        title: "dashboard",
         icon: DashBoard,
-        href: "/blank",
+        href: "/dashboard",
       },
     ],
   },
