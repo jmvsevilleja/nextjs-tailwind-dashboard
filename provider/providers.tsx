@@ -6,31 +6,11 @@ import { cn } from "@/lib/utils";
 // import { Toaster as ReactToaster } from "@/components/ui/toaster";
 // import { Toaster } from "react-hot-toast";
 import { Toaster } from "@/components/ui/sonner";
-import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const { theme, radius } = useThemeStore();
-  const location = usePathname();
 
-  if (location === "/") {
-    return (
-      <body className={cn("dashboard-app ", inter.className)}>
-        <ThemeProvider
-          attribute="class"
-          enableSystem={false}
-          defaultTheme="dark"
-        >
-          <div className={cn("h-full  ")}>
-            {children}
-            {/* <ReactToaster /> */}
-          </div>
-          <Toaster />
-          {/* <SonnToaster /> */}
-        </ThemeProvider>
-      </body>
-    );
-  }
   return (
     <body
       className={cn("dashboard-app ", inter.className, "theme-" + theme)}
@@ -40,11 +20,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
         } as React.CSSProperties
       }
     >
-      <ThemeProvider
-        attribute="class"
-        enableSystem={false}
-        defaultTheme="light"
-      >
+      <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
         <div className={cn("h-full  ")}>
           {children}
           {/* <ReactToaster /> */}
