@@ -13,8 +13,15 @@ import {
   Mail,
   Zap,
 } from "lucide-react";
+import LayoutLoader from "@/components/layout-loader";
+import { useMounted } from "@/hooks/use-mounted";
 
 export default function Home() {
+  const mounted = useMounted();
+  if (!mounted) {
+    return <LayoutLoader />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
