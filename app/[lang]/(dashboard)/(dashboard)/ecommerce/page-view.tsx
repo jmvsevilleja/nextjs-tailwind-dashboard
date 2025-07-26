@@ -16,17 +16,17 @@ import TopSell from "./components/top-sell";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import DashboardDropdown from "@/components/dashboard-dropdown";
 import DatePickerWithRange from "@/components/date-picker-with-range";
-// interface EcommercePageViewProps {
-//   trans: {
-//     [key: string]: string;
-//   };
-// }
-const EcommercePageView = () => {
+interface EcommercePageViewProps {
+  trans: {
+    [key: string]: string;
+  };
+}
+const EcommercePageView = ({ trans }: EcommercePageViewProps) => {
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap gap-4 items-center justify-between">
         <div className="text-2xl font-medium text-default-800">
-          Ecommerce Dashboard
+          Ecommerce {trans?.dashboard}
         </div>
         <DatePickerWithRange />
       </div>
