@@ -1,4 +1,4 @@
-import { DashBoard } from "@/components/svg";
+import { Cart, ClipBoard, DashBoard, Graph } from "@/components/svg";
 
 export interface MenuItemProps {
   title: string;
@@ -14,9 +14,25 @@ export interface MenuItemProps {
 export const menusConfig = {
   mainNav: [
     {
-      title: "dashboard",
+      title: "Dashboard",
       icon: DashBoard,
-      href: "/dashboard",
+      child: [
+        {
+          title: "Analytics",
+          href: "/dashboard",
+          icon: Graph,
+        },
+        {
+          title: "Ecommerce",
+          href: "/ecommerce",
+          icon: Cart,
+        },
+        {
+          title: "Project ",
+          href: "/project",
+          icon: ClipBoard,
+        },
+      ],
     },
   ],
   sidebarNav: {
@@ -33,9 +49,22 @@ export const menusConfig = {
         title: "menu",
       },
       {
-        title: "dashboard",
+        title: "Dashboard",
         icon: DashBoard,
         href: "/dashboard",
+
+        child: [
+          {
+            title: "Analytics",
+            href: "/dashboard",
+            icon: Graph,
+          },
+          {
+            title: "Ecommerce",
+            href: "/ecommerce",
+            icon: Cart,
+          },
+        ],
       },
     ],
   },
